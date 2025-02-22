@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ohataken/event-horizon-timer#readme",
   "devDependencies": {
+    "cors-anywhere": "^0.4.4",
     "http-server": "^14.1.1"
   }
 }
