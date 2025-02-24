@@ -25,6 +25,15 @@
       application.bindErrorHandler();
       application.bindCloseHandler();
 
+      setInterval(() => {
+        const now = new Date();
+        const remainingTime = timer.getRemainingTime(now);
+        const remainingMinutesString = timer.getRemainingMinutesString(remainingTime);
+        const remainingSecondsString = timer.getRemainingSecondsString(remainingTime);
+        const remainingSubsecondsString = timer.getRemainingSubsecondsString(remainingTime);
+        $timer.textContent = `${remainingMinutesString}:${remainingSecondsString}:${remainingSubsecondsString}`;
+      }, 97);
+
       await application.updateTimer();
     });
   </script>
