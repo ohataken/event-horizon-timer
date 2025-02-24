@@ -11,6 +11,8 @@
 <body>
   <script>
     window.addEventListener('DOMContentLoaded', async () => {
+      const $timer = document.getElementById('timer');
+
       const timer = new Timer();
 
       const application = new EventHorizonTimerApplication();
@@ -26,5 +28,12 @@
       await application.updateTimer();
     });
   </script>
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title is-size-1" id="timer">00:00:00</p>
+      </div>
+    </div>
+  </section>  
 </body>
 </html>
