@@ -21,7 +21,7 @@ class EventHorizonTimerApplication {
   getTimerUrl() {
     const hostname = this.getHttpHostname();
     const id = this.getTimerId();
-    const url = `https://${hostname}/${id}`;
+    const url = `https://${hostname}/api/timers/${id}`;
     return url;
   }
 
