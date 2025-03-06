@@ -14,6 +14,7 @@
     window.addEventListener('DOMContentLoaded', async () => {
       const $timer = document.getElementById('timer');
       const $timerStop = document.getElementById('timer-stop');
+      const $timerPlay = document.getElementById('timer-play');
 
       const timer = new Timer();
 
@@ -29,6 +30,11 @@
 
       $timerStop.addEventListener('click', () => {
         application.timer.makeStopped();
+        application.putTimerToApi();
+      });
+
+      $timerPlay.addEventListener('click', () => {
+        application.timer.makeRunning(new Date());
         application.putTimerToApi();
       });
 
@@ -51,6 +57,9 @@
         <p>
           <span id="timer-stop" class="icon">
             <i class="fas fa-stop"></i>
+          </span>
+          <span id="timer-play" class="icon">
+            <i class="fas fa-play"></i>
           </span>
         </p>
       </div>
