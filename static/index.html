@@ -13,6 +13,7 @@
   <script>
     window.addEventListener('DOMContentLoaded', async () => {
       const $timer = document.getElementById('timer');
+      const $timerStop = document.getElementById('timer-stop');
 
       const timer = new Timer();
 
@@ -25,6 +26,11 @@
       application.bindMessageHandler();
       application.bindErrorHandler();
       application.bindCloseHandler();
+
+      $timerStop.addEventListener('click', () => {
+        application.timer.makeStopped();
+        application.putTimerToApi();
+      });
 
       setInterval(() => {
         const now = new Date();
@@ -42,6 +48,11 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <p class="title is-size-1" id="timer">00:00:00</p>
+        <p>
+          <span id="timer-stop" class="icon">
+            <i class="fas fa-stop"></i>
+          </span>
+        </p>
       </div>
     </div>
   </section>  
