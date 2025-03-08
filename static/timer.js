@@ -59,6 +59,10 @@ class Timer {
     return remainingTime < 0;
   }
 
+  getRandomMinutes() {
+    return Math.floor(Math.random() * 100);
+  }
+
   getRemainingMinutes(remainingTime) {
     if (this.isPassed(remainingTime)) {
       return 0;
