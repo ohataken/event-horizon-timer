@@ -152,6 +152,10 @@ class Timer {
     return this.status === 'stopped';
   }
 
+  makeLoading() {
+    this.status = 'loading';
+  }
+
   makeRunning(now) {
     this.targetTime = this.getTargetTimeBy(now);
     this.status = 'running';
