@@ -140,6 +140,10 @@ class Timer {
     return this.status;
   }
 
+  isLoading() {
+    return this.status === 'loading';
+  }
+
   isRunning() {
     return this.status === 'running';
   }
