@@ -133,7 +133,7 @@ class Timer {
   }
 
   getStatus() {
-    return this.getStatus;
+    return this.status;
   }
 
   serializeStatus() {
