@@ -96,7 +96,9 @@ class Timer {
   }
 
   getRemainingMinutesString(remainingTime) {
-    if (this.isStopped()) {
+    if (this.isLoading()) {
+      return this.getRandomMinutes().toString().padStart(2, '0');
+    } else if (this.isStopped()) {
       return this.getDurationMinutes().toString().padStart(2, '0');
     } else if (!remainingTime || this.isPassed(remainingTime)) {
       return '00';
@@ -107,7 +109,9 @@ class Timer {
   }
 
   getRemainingSecondsString(remainingTime) {
-    if (this.isStopped()) {
+    if (this.isLoading()) {
+      return this.getRandomSeconds().toString().padStart(2, '0');
+    } else if (this.isStopped()) {
       return this.getDurationSeconds().toString().padStart(2, '0');
     } else if (!remainingTime || this.isPassed(remainingTime)) {
       return '00';
@@ -118,7 +122,9 @@ class Timer {
   }
 
   getRemainingSubsecondsString(remainingTime) {
-    if (this.isStopped()) {
+    if (this.isLoading()) {
+      return this.getRandomSubseconds().toString().padStart(2, '0');
+    } else if (this.isStopped()) {
       return this.getDurationSubseconds().toString().padStart(2, '0');
     } else if (!remainingTime || this.isPassed(remainingTime)) {
       return '00';

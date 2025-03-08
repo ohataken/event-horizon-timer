@@ -17,6 +17,7 @@
       const $timerPlay = document.getElementById('timer-play');
 
       const timer = new Timer();
+      timer.makeLoading();
 
       const application = new EventHorizonTimerApplication();
       window.eventHorizonTimerApplication = application;
@@ -46,6 +47,8 @@
         const remainingSubsecondsString = timer.getRemainingSubsecondsString(remainingTime);
         $timer.textContent = `${remainingMinutesString}:${remainingSecondsString}:${remainingSubsecondsString}`;
       }, 97);
+
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       await application.updateTimer();
     });
