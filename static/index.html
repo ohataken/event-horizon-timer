@@ -45,7 +45,8 @@
         const remainingMinutesString = timer.getRemainingMinutesString(remainingTime);
         const remainingSecondsString = timer.getRemainingSecondsString(remainingTime);
         const remainingSubsecondsString = timer.getRemainingSubsecondsString(remainingTime);
-        $timer.textContent = `${remainingMinutesString}:${remainingSecondsString}:${remainingSubsecondsString}`;
+        const colon = timer.getBlinkingColon(remainingTime);
+        $timer.textContent = `${remainingMinutesString}${colon}${remainingSecondsString}${colon}${remainingSubsecondsString}`;
       }, 97);
 
       await new Promise(resolve => setTimeout(resolve, 1000));
