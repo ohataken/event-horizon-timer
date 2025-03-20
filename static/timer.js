@@ -134,6 +134,19 @@ class Timer {
     }
   }
 
+  getBlinkingColon(remainingTime) {
+    if (this.isLoading()) {
+      return ':';
+    } else if (this.isStopped()) {
+      return ':';
+    } else if (this.isRunning()) {
+      const subseconds = this.getRemainingSubseconds(remainingTime);
+      return 0 < subseconds && subseconds < 15 || 50 < subseconds && subseconds < 65 ? ' ' : ':';
+    } else {
+      return ':';
+    }
+  }
+
   setStatus(status) {
     this.status = status;
   }
