@@ -80,11 +80,7 @@ class Timer {
   }
 
   getRemainingSubseconds(remainingTime) {
-    if (this.isPassed(remainingTime)) {
-      return 0;
-    } else {
-      return Math.floor((remainingTime % 1000) / 10);
-    }
+    return Math.abs(Math.floor((remainingTime % 1000) / 10));
   }
 
   getRemainingMinutesString(remainingTime) {
