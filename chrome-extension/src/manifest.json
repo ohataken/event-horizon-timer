@@ -9,5 +9,6 @@
   "side_panel": {
     "default_path": "dest/index.html"
   },  
+  "options_page": "dest/options_page.html",  
   "manifest_version": 3
 }
