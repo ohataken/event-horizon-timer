@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
@@ -7,5 +8,11 @@ export default defineConfig({
   base: "./",
   build: {
     outDir: "../src/dest",
+    rollupOptions: {
+      input: {
+        appIndex: resolve(__dirname, './index.html'),
+        appOptionsPage: resolve(__dirname, './options_page.html'),
+      }
+    },    
   },
 })
