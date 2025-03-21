@@ -2,5 +2,11 @@
   "name": "event-horizon-timer",
   "description": "Event Horizon Timer",
   "version": "0.0.1",
+  "permissions": [
+    "sidePanel"
+  ],
+  "side_panel": {
+    "default_path": "dest/index.html"
+  },  
   "manifest_version": 3
 }
