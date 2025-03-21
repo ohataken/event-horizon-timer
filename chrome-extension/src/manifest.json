@@ -3,6 +3,7 @@
   "description": "Event Horizon Timer",
   "version": "0.0.1",
   "permissions": [
+    "storage",
     "sidePanel"
   ],
   "side_panel": {
