@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { createPinia } from 'pinia'
 import './style.css'
-import App from './App.vue'
+import App from './SidePanelApp.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
