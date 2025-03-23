@@ -94,9 +94,12 @@ class EventHorizonTimerApplication {
 
   messageHandler(event) {
     const data = JSON.parse(event.data);
-    this.timer.setDuration(data.duration);
-    this.timer.setStatus(data.status);
-    this.timer.setTargetTime(data.target_time);
+
+    if (data.action === 'update_timer') {
+      this.timer.setDuration(data.timer.duration);
+      this.timer.setStatus(data.timer.status);
+      this.timer.setTargetTime(data.timer.target_time);
+    }
   }
 
   bindMessageHandler() {
