@@ -9,8 +9,9 @@ class EventHorizonTimerApplication {
   }
 
   getTimerId() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('timer_id');
+    const path = window.location.pathname;
+    const parts = path.split('/');
+    return parts[parts.length - 1];
   }
 
   getHttpHostname() {
