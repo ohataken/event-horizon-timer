@@ -99,6 +99,8 @@ class EventHorizonTimerApplication {
       this.timer.setDuration(data.timer.duration);
       this.timer.setStatus(data.timer.status);
       this.timer.setTargetTime(data.timer.target_time);
+    } else if (data.action === 'ping') {
+      console.log(data);
     }
   }
 
