@@ -6,6 +6,61 @@ info:
     event horizon timer
 servers:
   - url: example.com
+paths:
+  /api/timers:
+    post:
+      summary: create a new timer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimerRequest'
+        required: true
+      responses:
+        '200':
+          description: success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimerResponse'
+  /api/timers/${id}:
+    get:
+      summary: get a timer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimerResponse'
+    put:
+      summary: update a timer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimerRequest'
+      responses:
+        '200':
+          description: success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimerResponse'
 components:
   schemas:
     TimerStatusEnum:
