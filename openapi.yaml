@@ -6,3 +6,45 @@ info:
     event horizon timer
 servers:
   - url: example.com
+components:
+  schemas:
+    TimerStatusEnum:
+      type: string
+      format: string
+      enum:
+        - stopped
+        - running
+    TimerRequest:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/TimerStatusEnum'
+        duration:
+          type: integer
+          description: aaa
+          example: 300
+        target_time:
+          type: integer
+          format: int64
+          description: aaa
+          example: 678056400
+      required:
+        - status
+        - duration
+        - target_time
+    TimerResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
+        status:
+          $ref: '#/components/schemas/TimerStatusEnum'
+        duration:
+          type: integer
+          example: 300
+        target_time:
+          type: integer
+          format: int64
+          example: 678056400
