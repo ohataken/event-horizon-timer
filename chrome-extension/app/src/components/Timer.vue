@@ -1,6 +1,15 @@
 <template>
   <v-form>
     <v-row align="center" justify="center">
+      <v-col cols="12">
+        <v-text-field
+          label="Timer URL"
+          :model-value="`https://example.com/timers/${timerIdStore.timerId}`"
+          readonly
+        ></v-text-field>
+      </v-col>
+    </v-row>
+    <v-row align="center" justify="center">
       <v-col cols="auto">
         <v-btn
           density="comfortable"
