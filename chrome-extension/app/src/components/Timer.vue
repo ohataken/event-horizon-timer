@@ -7,6 +7,12 @@
           :model-value="`https://example.com/timers/${timerIdStore.timerId}`"
           readonly
         ></v-text-field>
+        <p>
+          <a :href="`https://example.com/timers/${timerIdStore.timerId}`" target="_blank">
+            <v-icon icon="mdi-open-in-new"></v-icon>
+            Open in new tab
+          </a>
+        </p>
       </v-col>
     </v-row>
     <v-row align="center" justify="center">
