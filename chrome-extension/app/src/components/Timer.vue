@@ -13,6 +13,12 @@
             Open in new tab
           </a>
         </p>
+        <p>
+          <span @click="copyUrl">
+            <v-icon icon="mdi-content-copy"></v-icon>
+            copy the url to share with others
+          </span>
+        </p>
       </v-col>
     </v-row>
     <v-row align="center" justify="center">
@@ -74,6 +80,11 @@
   >
     save
   </v-btn>
+  <v-snackbar
+    v-model="snackbar"
+  >
+    copied to clipboard
+  </v-snackbar>  
 </template>
 
 <script setup lang="ts">
@@ -89,6 +100,8 @@ const targetTime = ref(0)
 
 const durationMinutes = ref(0)
 const durationSeconds = ref(0)
+
+const snackbar = ref(false)
 
 const fetchTimer = async (id: string) => {
   const host = 'https://example.com'
@@ -166,6 +179,11 @@ const ping = async () => {
 
 const updateDuration = () => {
   duration.value = durationMinutes.value * 60 + durationSeconds.value
+}
+
+const copyUrl = () => {
+  navigator.clipboard.writeText(`https://d3k87cvukolq2q.cloudfront.net/timers/${timerIdStore.timerId}`)
+  snackbar.value = true
 }
 
 (async () => {
