@@ -11,3 +11,9 @@ paths:
       responses:
        '200':
          description: root
+  /api/timers:
+    post:
+      summary: create a new timer
+      responses:
+        '200':
+          description: success.
