@@ -17,3 +17,16 @@ paths:
       responses:
         '200':
           description: success.
+  /api/timers/${id}:
+    get:
+      summary: get a timer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: success.
