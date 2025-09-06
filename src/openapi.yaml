@@ -30,3 +30,15 @@ paths:
       responses:
         '200':
           description: success.
+    put:
+      summary: update a timer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: success.
