@@ -1,3 +1,6 @@
+/**
+ * event-horizon-timer-get-timer-html
+ */
 export async function handler(event) { // eslint-disable-line no-unused-vars
   return {
     statusCode: 200,

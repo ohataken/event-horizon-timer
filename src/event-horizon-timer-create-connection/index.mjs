@@ -1,6 +1,9 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 
+/**
+ * event-horizon-timer-create-connection
+ */
 export async function handler(event) {
   const id = event.queryStringParameters?.timer_id;
   const connectionId = event.requestContext.connectionId;

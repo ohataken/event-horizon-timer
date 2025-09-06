@@ -2,6 +2,9 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, GetCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi";
 
+/**
+ * event-horizon-timer-update-timer
+ */
 export async function handler(event) {
   const id = event.pathParameters.id;
   const body = JSON.parse(event.body);

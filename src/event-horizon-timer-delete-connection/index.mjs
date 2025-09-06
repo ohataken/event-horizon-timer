@@ -1,6 +1,9 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, GetCommand, UpdateCommand, DeleteCommand } from "@aws-sdk/lib-dynamodb";
 
+/**
+ * event-horizon-timer-delete-connection
+ */
 export async function handler(event) {
   const connectionId = event.requestContext.connectionId;
   const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef
