@@ -1,5 +1,5 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
+import { DynamoDBDocumentClient, UpdateCommand, PutCommand } from "@aws-sdk/lib-dynamodb";
 
 /**
  * event-horizon-timer-create-connection
@@ -8,6 +8,7 @@ export async function handler(event) {
   const id = event.queryStringParameters?.timer_id;
   const connectionId = event.requestContext.connectionId;
   const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef
+  const connectionTableName = process.env.CONNECTIONS_TABLE_NAME; // eslint-disable-line no-undef
   const dynamoDBClient = new DynamoDBClient({});
   const dynamoDB = DynamoDBDocumentClient.from(dynamoDBClient);
 
@@ -26,6 +27,14 @@ export async function handler(event) {
       ExpressionAttributeValues: {
         ":c": new Set([connectionId])
       }
+    }));
+
+    await dynamoDB.send(new PutCommand({
+      TableName: connectionTableName,
+      Item: {
+        id: connectionId,
+        timer_id: id,
+      },
     }));
 
     return {
