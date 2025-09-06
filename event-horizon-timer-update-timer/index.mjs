@@ -2,7 +2,7 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, GetCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi";
 
-export async function handler(event) { // eslint-disable-line no-unused-vars
+export async function handler(event) {
   const id = event.pathParameters.id;
   const body = JSON.parse(event.body);
   const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef

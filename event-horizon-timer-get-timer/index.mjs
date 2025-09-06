@@ -1,7 +1,7 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, GetCommand } from "@aws-sdk/lib-dynamodb";
 
-export async function handler(event) { // eslint-disable-line no-unused-vars
+export async function handler(event) {
   const id = event.pathParameters.id;
   const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef
   const dynamoDBClient = new DynamoDBClient({});
