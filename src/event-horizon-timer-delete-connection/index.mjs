@@ -3,6 +3,8 @@ import { DynamoDBDocumentClient, GetCommand, UpdateCommand, DeleteCommand } from
 
 /**
  * event-horizon-timer-delete-connection
+ * @param {Object} event event
+ * @returns {Object} response
  */
 export async function handler(event) {
   const connectionId = event.requestContext.connectionId;

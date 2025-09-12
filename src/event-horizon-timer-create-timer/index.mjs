@@ -4,6 +4,8 @@ import crypto from 'crypto';
 
 /**
  * event-horizon-timer-create-timer
+ * @param {Object} event event
+ * @returns {Object} response
  */
 export async function handler(event) { // eslint-disable-line no-unused-vars
   const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef
