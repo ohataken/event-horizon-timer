@@ -8,12 +8,16 @@ paths:
   /api/timers:
     post:
       summary: create a new timer
+      description: |-
+        create a new timer
       responses:
         '200':
           description: success.
   /api/timers/${id}:
     get:
       summary: get a timer
+      description: |-
+        get a timer
       parameters:
         - name: id
           in: path
@@ -26,6 +30,8 @@ paths:
           description: success.
     put:
       summary: update a timer
+      description: |-
+        update a timer
       parameters:
         - name: id
           in: path
