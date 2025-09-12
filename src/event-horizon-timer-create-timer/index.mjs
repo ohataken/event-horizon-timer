@@ -7,8 +7,8 @@ import crypto from 'crypto';
  * @param {Object} event event
  * @returns {Object} response
  */
-export async function handler(event) { // eslint-disable-line no-unused-vars
-  const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef
+export async function handler(event) { // eslint-disable-line no-unused-vars -- event
+  const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef -- process
   const dynamoDBClient = new DynamoDBClient({});
   const dynamoDB = DynamoDBDocumentClient.from(dynamoDBClient);
 

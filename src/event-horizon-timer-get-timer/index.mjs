@@ -8,7 +8,7 @@ import { DynamoDBDocumentClient, GetCommand } from "@aws-sdk/lib-dynamodb";
  */
 export async function handler(event) {
   const id = event.pathParameters.id;
-  const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef
+  const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef -- process
   const dynamoDBClient = new DynamoDBClient({});
   const dynamoDB = DynamoDBDocumentClient.from(dynamoDBClient);
 
