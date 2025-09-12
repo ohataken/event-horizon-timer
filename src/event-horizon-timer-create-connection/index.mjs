@@ -24,7 +24,7 @@ export async function handler(event) {
   try {
     await dynamoDB.send(new UpdateCommand({
       TableName: tableName,
-      Key: { id: id },
+      Key: { id },
       UpdateExpression: "ADD client_ids :c",
       ExpressionAttributeValues: {
         ":c": new Set([connectionId])

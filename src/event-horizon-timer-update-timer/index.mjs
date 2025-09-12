@@ -67,7 +67,7 @@ export async function handler(event) {
     }));
 
     await Promise.all(clientIds.map(async (clientId) => {
-      if (clientId === "sentinel") return;
+      if (clientId === "sentinel") { return; }
       try {
         const apiGw = new ApiGatewayManagementApiClient({
           endpoint: websocketEndpoint,
