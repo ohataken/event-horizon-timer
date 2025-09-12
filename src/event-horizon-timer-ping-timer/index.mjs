@@ -56,7 +56,7 @@ export async function handler(event) {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: `Failed to update timer ${error}` })
+      body: JSON.stringify({ message: `Failed to ping timer ${error}` })
     };
   }
 }

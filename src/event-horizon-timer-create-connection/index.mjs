@@ -46,7 +46,7 @@ export async function handler(event) {
   } catch (error) { // eslint-disable-line no-unused-vars
     return {
       statusCode: 500,
-      body: "Failed to connect"
+      body: JSON.stringify({ message: `Failed to create connection ${error}` })
     };
   }
 }
