@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, GetCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi";
@@ -74,7 +75,7 @@ export async function handler(event) {
 
         await apiGw.send(new PostToConnectionCommand({
           ConnectionId: clientId,
-          Data: Buffer.from(JSON.stringify({ action: "update_timer", timer: body })) // eslint-disable-line no-undef
+          Data: Buffer.from(JSON.stringify({ action: "update_timer", timer: body }))
         }));
       } catch (err) {
         console.warn(`Failed to send message to client ${clientId}:`, err);
