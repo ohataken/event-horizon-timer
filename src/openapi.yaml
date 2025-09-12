@@ -2,8 +2,6 @@ openapi: 3.0.4
 info:
   version: 1.0.12
   title: Event Horizon Timer
-  description: |-
-    event horizon timer
 paths:
   /api/timers:
     post:
