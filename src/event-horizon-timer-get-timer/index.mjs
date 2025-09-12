@@ -32,7 +32,7 @@ export async function handler(event) {
           id: timerResult.Item.id,
           // client_ids: Array.from(timerResult.Item.client_ids || new Set()), // do not response.
           status: timerResult.Item.status,
-          target_time: timerResult.Item.target_time,
+          target_time: timerResult.Item.target_time, // eslint-disable-line camelcase -- target_time
           duration: timerResult.Item.duration,
           // token: timerResult.Item.token, // do not response.
         },
