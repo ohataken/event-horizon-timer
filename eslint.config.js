@@ -14,7 +14,7 @@ export default defineConfig([
       "js/recommended"
     ],
     languageOptions: {
-      globals: globals.browser
+      globals: globals.node
     },
     rules: {
       indent: ["error", 2]
