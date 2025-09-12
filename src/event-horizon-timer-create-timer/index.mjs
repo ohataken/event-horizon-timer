@@ -15,9 +15,9 @@ export async function handler(event) { // eslint-disable-line no-unused-vars -- 
   try {
     const timerObject = {
       id: crypto.randomUUID(),
-      client_ids: new Set(["sentinel"]),
+      client_ids: new Set(["sentinel"]), // eslint-disable-line camelcase -- client_ids
       status: "stopped",
-      target_time: 0,
+      target_time: 0, // eslint-disable-line camelcase -- target_time
       duration: 0,
       token: crypto.randomBytes(32).toString('hex'),
     };

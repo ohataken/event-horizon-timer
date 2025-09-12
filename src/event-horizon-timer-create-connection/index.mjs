@@ -35,7 +35,7 @@ export async function handler(event) {
       TableName: connectionTableName,
       Item: {
         id: connectionId,
-        timer_id: id,
+        timer_id: id, // eslint-disable-line camelcase -- timer_id
       },
     }));
 
