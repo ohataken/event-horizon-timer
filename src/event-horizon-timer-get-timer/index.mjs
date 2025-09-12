@@ -3,6 +3,8 @@ import { DynamoDBDocumentClient, GetCommand } from "@aws-sdk/lib-dynamodb";
 
 /**
  * event-horizon-timer-get-timer
+ * @param {Object} event event
+ * @returns {Object} response
  */
 export async function handler(event) {
   const id = event.pathParameters.id;

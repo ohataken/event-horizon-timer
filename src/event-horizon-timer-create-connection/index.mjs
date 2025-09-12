@@ -3,6 +3,8 @@ import { DynamoDBDocumentClient, UpdateCommand, PutCommand } from "@aws-sdk/lib-
 
 /**
  * event-horizon-timer-create-connection
+ * @param {Object} event event
+ * @returns {Object} response
  */
 export async function handler(event) {
   const id = event.queryStringParameters?.timer_id;

@@ -4,6 +4,8 @@ import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk
 
 /**
  * event-horizon-timer-ping-timer
+ * @param {Object} event event
+ * @returns {Object} response
  */
 export async function handler(event) {
   const id = event.pathParameters.id;
