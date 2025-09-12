@@ -42,7 +42,7 @@ export async function handler(event) {
           Data: Buffer.from(JSON.stringify({ action: "ping", timestamp: new Date().getTime() }))
         }));
       } catch (err) {
-        console.warn(`Failed to send message to client ${clientId}:`, err);
+        console.warn(`Failed to send message to client ${clientId}:`, err); // eslint-disable-line no-console, no-undef -- console
       }
     }));
 
