@@ -10,10 +10,10 @@ import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk
 export async function handler(event) {
   const id = event.pathParameters.id;
   const body = JSON.parse(event.body);
-  const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef
+  const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef -- process
   const dynamoDBClient = new DynamoDBClient({});
   const dynamoDB = DynamoDBDocumentClient.from(dynamoDBClient);
-  const websocketEndpoint = process.env.WEBSOCKET_API_ENDPOINT; // eslint-disable-line no-undef
+  const websocketEndpoint = process.env.WEBSOCKET_API_ENDPOINT; // eslint-disable-line no-undef -- process
 
   try {
     const timerResult = await dynamoDB.send(new GetCommand({

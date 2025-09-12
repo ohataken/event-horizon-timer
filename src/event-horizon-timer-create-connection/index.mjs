@@ -9,8 +9,8 @@ import { DynamoDBDocumentClient, UpdateCommand, PutCommand } from "@aws-sdk/lib-
 export async function handler(event) {
   const id = event.queryStringParameters?.timer_id;
   const connectionId = event.requestContext.connectionId;
-  const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef
-  const connectionTableName = process.env.CONNECTIONS_TABLE_NAME; // eslint-disable-line no-undef
+  const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef -- process
+  const connectionTableName = process.env.CONNECTIONS_TABLE_NAME; // eslint-disable-line no-undef -- process
   const dynamoDBClient = new DynamoDBClient({});
   const dynamoDB = DynamoDBDocumentClient.from(dynamoDBClient);
 
