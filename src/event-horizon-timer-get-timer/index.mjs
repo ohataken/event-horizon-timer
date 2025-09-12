@@ -38,7 +38,7 @@ export async function handler(event) {
         },
       }),
     };
-  } catch (error) { // eslint-disable-line no-unused-vars
+  } catch (error) {
     return {
       statusCode: 500,
       body: JSON.stringify({ message: `Failed to get timer ${error}` })
