@@ -26,6 +26,29 @@ paths:
       responses:
         '200':
           description: success.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timer:
+                    description: timer
+                    type: object
+                    properties:
+                      id:
+                        description: id
+                        type: string
+                        format: uuid
+                      status:
+                        description: status
+                        type: string
+                        enum: [running, stopped]
+                      target_time:
+                        description: target time
+                        type: number
+                      duration:
+                        description: duration
+                        type: integer
     put:
       summary: update a timer
       description: |-
