@@ -27,6 +27,9 @@ export async function handler(event) {
     if (!timerResult.Item) {
       return {
         statusCode: 404,
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ message: "Timer not found" })
       };
     }
@@ -47,6 +50,9 @@ export async function handler(event) {
 
     return {
       statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         message: "ping",
         timestamp: new Date().getTime(),
@@ -56,6 +62,9 @@ export async function handler(event) {
   } catch (error) {
     return {
       statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({ message: `Failed to ping timer ${error}` })
     };
   }
