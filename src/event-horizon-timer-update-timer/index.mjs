@@ -15,6 +15,9 @@ export async function handler(event) {
   const dynamoDBClient = new DynamoDBClient({});
   const dynamoDB = DynamoDBDocumentClient.from(dynamoDBClient);
   const endpoint = process.env.WEBSOCKET_API_ENDPOINT; // eslint-disable-line no-undef -- process
+  const apiGw = new ApiGatewayManagementApiClient({
+    endpoint,
+  });
 
   try {
     const timerResult = await dynamoDB.send(new GetCommand({
@@ -69,10 +72,6 @@ export async function handler(event) {
     await Promise.all(clientIds.map(async (clientId) => {
       if (clientId === "sentinel") { return; }
       try {
-        const apiGw = new ApiGatewayManagementApiClient({
-          endpoint,
-        });
-
         await apiGw.send(new PostToConnectionCommand({
           ConnectionId: clientId,
           Data: Buffer.from(JSON.stringify({ action: "update_timer", timer: body }))
