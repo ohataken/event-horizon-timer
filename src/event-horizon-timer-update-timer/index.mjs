@@ -14,7 +14,7 @@ export async function handler(event) {
   const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef -- process
   const dynamoDBClient = new DynamoDBClient({});
   const dynamoDB = DynamoDBDocumentClient.from(dynamoDBClient);
-  const websocketEndpoint = process.env.WEBSOCKET_API_ENDPOINT; // eslint-disable-line no-undef -- process
+  const endpoint = process.env.WEBSOCKET_API_ENDPOINT; // eslint-disable-line no-undef -- process
 
   try {
     const timerResult = await dynamoDB.send(new GetCommand({
@@ -70,7 +70,7 @@ export async function handler(event) {
       if (clientId === "sentinel") { return; }
       try {
         const apiGw = new ApiGatewayManagementApiClient({
-          endpoint: websocketEndpoint,
+          endpoint: endpoint,
         });
 
         await apiGw.send(new PostToConnectionCommand({
