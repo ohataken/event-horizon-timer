@@ -70,7 +70,7 @@ export async function handler(event) {
       if (clientId === "sentinel") { return; }
       try {
         const apiGw = new ApiGatewayManagementApiClient({
-          endpoint: endpoint,
+          endpoint,
         });
 
         await apiGw.send(new PostToConnectionCommand({
