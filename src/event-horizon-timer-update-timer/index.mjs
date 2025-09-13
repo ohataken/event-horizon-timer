@@ -28,6 +28,9 @@ export async function handler(event) {
     if (!timerResult.Item) {
       return {
         statusCode: 404,
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ message: "Timer not found" })
       };
     }
@@ -35,6 +38,9 @@ export async function handler(event) {
     if (body?.token && body.token !== timerResult.Item.token) {
       return {
         statusCode: 400,
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ message: "Invalid token" })
       };
     }
@@ -56,6 +62,9 @@ export async function handler(event) {
     if (updateExpression.length === 0) {
       return {
         statusCode: 400,
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ message: "No valid attributes to update" })
       };
     }
@@ -83,6 +92,9 @@ export async function handler(event) {
 
     return {
       statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         message: "Timer updated successfully",
         timer: result.Attributes
@@ -91,6 +103,9 @@ export async function handler(event) {
   } catch (error) {
     return {
       statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({ message: `Failed to update timer ${error}` })
     };
   }

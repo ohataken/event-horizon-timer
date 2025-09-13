@@ -29,11 +29,17 @@ export async function handler(event) { // eslint-disable-line no-unused-vars -- 
 
     return {
       statusCode: 201,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(timerObject),
     };
   } catch (error) {
     return {
       statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({ message: `Failed to create timer: ${error}` }),
     };
   }
