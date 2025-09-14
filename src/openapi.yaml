@@ -70,6 +70,7 @@ paths:
                         description: id
                         type: string
                         format: uuid
+                        example: 3f4d7fca-4a06-4af7-8da4-90445e52de17
                       status:
                         description: status
                         type: string
@@ -77,9 +78,11 @@ paths:
                       target_time:
                         description: target time
                         type: number
+                        example: 1757817633
                       duration:
                         description: duration
                         type: integer
+                        example: 180
     put:
       summary: update a timer
       description: |-
@@ -139,6 +142,7 @@ paths:
                         description: id
                         type: string
                         format: uuid
+                        example: 3f4d7fca-4a06-4af7-8da4-90445e52de17
                       status:
                         description: status
                         type: string
@@ -146,6 +150,8 @@ paths:
                       target_time:
                         description: target time
                         type: number
+                        example: 1757817633
                       duration:
                         description: duration
                         type: integer
+                        example: 180
