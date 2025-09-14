@@ -32,7 +32,15 @@ export async function handler(event) { // eslint-disable-line no-unused-vars -- 
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(timerObject),
+      body: JSON.stringify({
+        timer: {
+          id: timerObject.id,
+          status: timerObject.status,
+          target_time: timerObject.target_time, // eslint-disable-line camelcase -- target_time
+          duration: timerObject.duration,
+          token: timerObject.token,
+        },
+      }),
     };
   } catch (error) {
     return {
