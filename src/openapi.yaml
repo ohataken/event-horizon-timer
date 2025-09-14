@@ -9,8 +9,39 @@ paths:
       description: |-
         create a new timer
       responses:
-        '200':
+        '201':
           description: success.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timer:
+                    description: timer
+                    type: object
+                    properties:
+                      id:
+                        description: id
+                        type: string
+                        format: uuid
+                        example: 3f4d7fca-4a06-4af7-8da4-90445e52de17
+                      token:
+                        description: token
+                        type: string
+                        format: hex
+                        example: "112c414625408e15974642192ca630ba854880ff761053cdd0df6483dcd531cf"
+                      status:
+                        description: status
+                        type: string
+                        example: stopped
+                      target_time:
+                        description: target time
+                        type: number
+                        example: 1757817633
+                      duration:
+                        description: duration
+                        type: integer
+                        example: 0
   /api/timers/${id}:
     get:
       summary: get a timer
