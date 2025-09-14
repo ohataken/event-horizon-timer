@@ -78,12 +78,20 @@ export async function handler(event) {
       ReturnValues: "ALL_NEW"
     }));
 
+    const timerResponse = {
+      id: body.id,
+      status: body.status,
+      target_time: body.target_time, // eslint-disable-line camelcase -- target_time
+      duration: body.duration,
+      // token: body.token, // do not response.
+    };
+
     await Promise.all(clientIds.map(async (clientId) => {
       if (clientId === "sentinel") { return; }
       try {
         await apiGw.send(new PostToConnectionCommand({
           ConnectionId: clientId,
-          Data: Buffer.from(JSON.stringify({ action: "update_timer", timer: body }))
+          Data: Buffer.from(JSON.stringify({ action: "update_timer", timer: timerResponse }))
         }));
       } catch (err) {
         console.warn(`Failed to send message to client ${clientId}:`, err); // eslint-disable-line no-console, no-undef -- console
