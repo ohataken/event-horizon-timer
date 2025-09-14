@@ -42,7 +42,7 @@ paths:
                         description: duration
                         type: integer
                         example: 0
-  /api/timers/${id}:
+  /api/timers/{id}:
     get:
       summary: get a timer
       description: |-
