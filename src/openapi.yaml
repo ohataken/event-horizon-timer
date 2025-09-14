@@ -60,6 +60,38 @@ paths:
           schema:
             type: string
             format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - token
+                - status
+                - target_time
+                - duration
+              properties:
+                token:
+                  description: token
+                  type: string
+                  format: hex
+                  example: "112c414625408e15974642192ca630ba854880ff761053cdd0df6483dcd531cf"
+                status:
+                  description: timer status
+                  type: string
+                  enum: [running, stopped]
+                  example: "running"
+                target_time:
+                  description: target time
+                  type: number
+                  minimum: 0
+                  example: 1757817633
+                duration:
+                  description: duration
+                  type: integer
+                  minimum: 0
+                  example: 180
       responses:
         '200':
           description: success.
