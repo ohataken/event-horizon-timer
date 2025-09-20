@@ -11,6 +11,7 @@ import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk
 export async function handler(event) {
   const id = event.pathParameters.id;
   const body = JSON.parse(event.body);
+  const token = event.headers?.Authorization || event.headers?.authorization;
   const tableName = process.env.TIMERS_TABLE_NAME; // eslint-disable-line no-undef -- process
   const dynamoDBClient = new DynamoDBClient({});
   const dynamoDB = DynamoDBDocumentClient.from(dynamoDBClient);
@@ -35,7 +36,7 @@ export async function handler(event) {
       };
     }
 
-    if (body?.token && body.token !== timerResult.Item.token) {
+    if (token && `Bearer ${token}` !== timerResult.Item.token) {
       return {
         statusCode: 400,
         headers: {
