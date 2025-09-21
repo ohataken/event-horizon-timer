@@ -5,6 +5,12 @@ info:
 tags:
   - name: timer
     description: timer
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: hex
 paths:
   /api/timers:
     post:
@@ -96,6 +102,8 @@ paths:
         update a timer
       tags:
         - timer
+      security:
+        - bearerAuth: []
       parameters:
         - name: id
           in: path
@@ -115,11 +123,6 @@ paths:
                 - target_time
                 - duration
               properties:
-                token:
-                  description: token
-                  type: string
-                  format: hex
-                  example: "112c414625408e15974642192ca630ba854880ff761053cdd0df6483dcd531cf"
                 status:
                   description: timer status
                   type: string
