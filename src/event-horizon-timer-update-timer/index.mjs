@@ -36,7 +36,7 @@ export async function handler(event) {
       };
     }
 
-    if (token && `Bearer ${token}` !== timerResult.Item.token) {
+    if (token && token !== `Bearer ${timerResult.Item.token}`) {
       return {
         statusCode: 400,
         headers: {
