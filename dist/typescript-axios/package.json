@@ -1,6 +1,6 @@
 {
   "name": "@ohataken/event-horizon-timer-openapi-typescript-axios",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Generated API client from OpenAPI specification",
   "main": "dist/index.js",
   "types": "dist/index.ts",

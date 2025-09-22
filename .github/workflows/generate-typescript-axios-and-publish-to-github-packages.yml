@@ -55,9 +55,6 @@ jobs:
           npm pkg set repository.url="git+https://github.com/${{ github.repository }}.git"
           npm pkg set publishConfig.registry="https://npm.pkg.github.com"
 
-          VERSION="0.0.$(date +%Y%m%d%H%M%S)"
-          npm pkg set version="$VERSION"
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
