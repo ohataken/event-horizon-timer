@@ -1,0 +1,72 @@
+name: generate typescript-axios and publish to GitHub Packages
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+    paths:
+      - 'src/openapi.yaml'
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js for GitHub Packages
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@${{ github.repository_owner }}'
+
+      - name: Generate code from OpenAPI
+        run: |
+          npx @openapitools/openapi-generator-cli generate \
+            -i src/openapi.yaml \
+            -g typescript-axios \
+            -o dist/typescript-axios
+
+      - name: Install dependencies and build
+        run: |
+          cd dist/typescript-axios
+          npm install
+          npm run build
+
+      - name: Setup package.json for GitHub Packages
+        run: |
+          cd dist/typescript-axios
+
+          # package.jsonが存在しない場合、ルートからテンプレートをコピー
+          if [ ! -f package.json ]; then
+            cp ../../package.template.json package.json
+          fi
+
+          # GitHub Packages用にpackage.jsonを調整
+          npm pkg set name="@${{ github.repository_owner }}/${{ github.event.repository.name }}-typescript-axios"
+          npm pkg set repository.type="git"
+          npm pkg set repository.url="git+https://github.com/${{ github.repository }}.git"
+          npm pkg set publishConfig.registry="https://npm.pkg.github.com"
+
+          VERSION="0.0.$(date +%Y%m%d%H%M%S)"
+          npm pkg set version="$VERSION"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-package
+          path: dist/typescript-axios
+
+      - name: Publish to GitHub Packages
+        run: |
+          cd dist/typescript-axios
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

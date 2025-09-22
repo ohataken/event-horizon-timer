@@ -1,0 +1,25 @@
+{
+  "name": "@ohataken/event-horizon-timer-openapi-typescript-axios",
+  "version": "1.0.0",
+  "description": "Generated API client from OpenAPI specification",
+  "main": "dist/index.js",
+  "types": "dist/index.ts",
+  "files": [
+    "*"
+  ],
+  "scripts": {
+    "build": "tsc index.ts --lib ES2015,DOM",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.12.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
