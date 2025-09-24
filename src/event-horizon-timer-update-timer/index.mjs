@@ -30,7 +30,8 @@ export async function handler(event) {
       return {
         statusCode: 404,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({ message: "Timer not found" })
       };
@@ -40,7 +41,8 @@ export async function handler(event) {
       return {
         statusCode: 400,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({ message: "Invalid token" })
       };
@@ -64,7 +66,8 @@ export async function handler(event) {
       return {
         statusCode: 400,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({ message: "No valid attributes to update" })
       };
@@ -102,7 +105,8 @@ export async function handler(event) {
     return {
       statusCode: 200,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify({
         message: "Timer updated successfully",
@@ -113,7 +117,8 @@ export async function handler(event) {
     return {
       statusCode: 500,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify({ message: `Failed to update timer ${error}` })
     };

@@ -30,7 +30,8 @@ export async function handler(event) { // eslint-disable-line no-unused-vars -- 
     return {
       statusCode: 201,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify({
         timer: {
@@ -46,7 +47,8 @@ export async function handler(event) { // eslint-disable-line no-unused-vars -- 
     return {
       statusCode: 500,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify({ message: `Failed to create timer: ${error}` }),
     };
