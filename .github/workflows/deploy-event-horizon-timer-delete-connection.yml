@@ -32,4 +32,4 @@ jobs:
           code-artifacts-dir: src/event-horizon-timer-delete-connection
           runtime: nodejs22.x
           handler: index.handler
-          architecture: x86_64
+          architecture: arm64
