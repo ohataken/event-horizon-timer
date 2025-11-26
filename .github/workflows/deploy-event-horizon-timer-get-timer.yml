@@ -30,6 +30,6 @@ jobs:
         with:
           function-name: event-horizon-timer-get-timer
           code-artifacts-dir: src/event-horizon-timer-get-timer
-          runtime: nodejs22.x
+          runtime: nodejs24.x
           handler: index.handler
           architecture: arm64
