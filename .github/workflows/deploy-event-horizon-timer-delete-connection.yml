@@ -28,11 +28,10 @@ jobs:
       - name: Package Lambda function
         run: |
           cd src/event-horizon-timer-delete-connection
-          zip -r ../../function.zip .
-          cd ../..
+          zip -r function.zip .
 
       - name: Deploy Lambda function
         uses: aws-actions/aws-lambda-deploy@v1
         with:
           function-name: event-horizon-timer-delete-connection
-          code-artifacts-dir: .
+          code-artifacts-dir: src/event-horizon-timer-delete-connection
