@@ -47,8 +47,9 @@ export async function handler(event) {
       };
     }
 
+    const body = JSON.parse(event.body);
+    const targetTime = body.target_time;
     const clientIds = Array.from(timerResult.Item.client_ids || new Set());
-    const targetTime = Math.floor(Date.now() / 1000) + timerResult.Item.duration;
 
     const result = await dynamoDB.send(new UpdateCommand({
       TableName: tableName,
