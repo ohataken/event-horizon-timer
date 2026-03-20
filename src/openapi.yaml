@@ -11,6 +11,13 @@ components:
       type: http
       scheme: bearer
       bearerFormat: hex
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          description: error message
+          type: string
 paths:
   /api/timers:
     post:
@@ -53,6 +60,12 @@ paths:
                         description: duration
                         type: integer
                         example: 0
+        '500':
+          description: server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /api/timers/{id}:
     get:
       summary: get a timer
@@ -96,6 +109,18 @@ paths:
                         description: duration
                         type: integer
                         example: 180
+        '404':
+          description: timer not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
     put:
       summary: update a timer
       description: |-
@@ -167,6 +192,24 @@ paths:
                         description: duration
                         type: integer
                         example: 180
+        '400':
+          description: no valid attributes to update.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: timer not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /api/timers/{id}/start:
     post:
       summary: start a timer
@@ -212,6 +255,18 @@ paths:
                         description: duration
                         type: integer
                         example: 180
+        '404':
+          description: timer not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /api/timers/{id}/stop:
     post:
       summary: stop a timer
@@ -257,3 +312,15 @@ paths:
                         description: duration
                         type: integer
                         example: 180
+        '404':
+          description: timer not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
