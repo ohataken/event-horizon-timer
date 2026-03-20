@@ -36,7 +36,18 @@ export async function handler(event) {
       };
     }
 
-    if (token && token !== `Bearer ${timerResult.Item.token}`) {
+    if (!token) {
+      return {
+        statusCode: 401,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({ message: "Authorization header is required" })
+      };
+    }
+
+    if (token !== `Bearer ${timerResult.Item.token}`) {
       return {
         statusCode: 403,
         headers: {
