@@ -192,6 +192,18 @@ paths:
                         description: duration
                         type: integer
                         example: 180
+        '401':
+          description: authorization header is missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         '400':
           description: no valid attributes to update.
           content:
@@ -255,6 +267,18 @@ paths:
                         description: duration
                         type: integer
                         example: 180
+        '401':
+          description: authorization header is missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: timer not found.
           content:
@@ -312,6 +336,18 @@ paths:
                         description: duration
                         type: integer
                         example: 180
+        '401':
+          description: authorization header is missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: timer not found.
           content:
