@@ -38,7 +38,7 @@ export async function handler(event) {
 
     if (token && token !== `Bearer ${timerResult.Item.token}`) {
       return {
-        statusCode: 400,
+        statusCode: 403,
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
